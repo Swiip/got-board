@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "got-board",
+  "public": true,
+  "env": {
+    "AUTH0_DOMAIN": "@auth0_domain",
+    "AUTH0_CLIENT_ID": "@auth0_client_id",
+    "MONGO_HOST": "@mongo_host",
+    "MONGO_USER": "@mongo_user",
+    "MONGO_PASSWORD": "@mongo_password",
+    "MONGO_DB": "@mongo_db"
+  },
+  "builds": [
+    { "src": "static", "use": "@now/static" },
+    { "src": "api/index.js", "use": "@now/node" },
+    { "src": "next.config.js", "use": "@now/next" }
+  ]
+}
