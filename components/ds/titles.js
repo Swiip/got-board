@@ -10,4 +10,5 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   color: ${fontColor};
   font-family: tungsten, "Arial Narrow";
+  font-size: 30px;
 `;

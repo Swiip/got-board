@@ -1,9 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import { useMutation } from "react-apollo-hooks";
+import gql from "graphql-tag";
+import Router from "next/router";
 
 import { H2 } from "../ds/titles";
+import { Line, Input } from "../ds/forms";
+import { Button } from "../ds/buttons";
 
 const Create = () => {
-  return <H2>Create a game</H2>;
+  const [gameTitle, setGameTitle] = useState();
+
+  const createMutation = useMutation(
+    gql`
+      mutation create($title: String!) {
+        create(title: $title) {
+          uid
+          title
+        }
+      }
+    `,
+    {
+      variables: { title: gameTitle }
+    }
+  );
+
+  const titleHander = event => setGameTitle(event.target.value);
+  const createHandler = async () => {
+    const {
+      data: {
+        create: { uid }
+      }
+    } = await createMutation();
+    Router.push(`/game/${uid}`);
+  };
+
+  return (
+    <>
+      <H2>Create a game</H2>
+      <Line>
+        <Input
+          id="create-title"
+          type="text"
+          placeholder="Game title"
+          onChange={titleHander}
+        />
+        <Button type="button" onClick={createHandler}>
+          Create
+        </Button>
+      </Line>
+    </>
+  );
 };
 
 export default Create;

@@ -1,25 +1,15 @@
 import { ApolloServer } from "apollo-server-micro";
 
 import context from "./auth";
-import mongo from "./mongo";
 import typeDefs from "./schema";
 
+import user from "./user";
+import get from "./game/get";
+import create from "./game/create";
+
 const resolvers = {
-  Query: {
-    hello: (root, args, { mail }) => {
-      return `Hello world! It's your boy, how far now unicodeveloper ${mail}`;
-    },
-    user: async (root, args, { mail }) => {
-      const db = await mongo();
-      const collection = await db.collection("user");
-      let user = await collection.findOne({ mail });
-      if (!user) {
-        user = { mail, nick: mail };
-        await collection.insertOne(user);
-      }
-      return user;
-    }
-  }
+  Query: { user, game: get },
+  Mutation: { create }
 };
 
 const server = new ApolloServer({

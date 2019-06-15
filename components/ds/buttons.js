@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
 
-import { fontColor } from "../../style/colors";
+import {
+  fontColor,
+  darkGrayBg,
+  lightGrayFont,
+  mediumGrayBg
+} from "../../style/colors";
 
 export const LinkButton = styled.button`
   background-color: transparent;
@@ -9,4 +14,19 @@ export const LinkButton = styled.button`
   font-size: 16px;
   text-decoration: underline;
   cursor: pointer;
+`;
+
+export const Button = styled.button`
+  background-color: ${darkGrayBg};
+  border-radius: 0;
+  color: ${lightGrayFont};
+  border: none;
+  font-family: tungsten;
+  font-size: 20px;
+  padding: 5px 20px;
+  cursor: pointer;
+
+  :hover {
+    background-color: ${mediumGrayBg};
+  }
 `;

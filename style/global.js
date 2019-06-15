@@ -13,8 +13,8 @@ const styles = css`
   }
 
   @font-face {
-    font-family: tungsten-b;
-    src: url("/static/fonts/tungsten-b.woff2") format("woff2");
+    font-family: tungsten;
+    src: url("/static/fonts/tungsten.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
     font-display: fallback;
