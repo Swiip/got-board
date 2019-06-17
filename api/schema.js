@@ -13,7 +13,6 @@ export default gql`
   }
 
   type Query {
-    hello: String
     user: User
     games: [Game]
     game(uid: String): Game

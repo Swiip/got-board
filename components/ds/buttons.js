@@ -25,6 +25,7 @@ export const Button = styled.button`
   font-size: 20px;
   padding: 5px 20px;
   cursor: pointer;
+  min-width: 100px;
 
   :hover {
     background-color: ${mediumGrayBg};

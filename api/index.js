@@ -5,10 +5,11 @@ import typeDefs from "./schema";
 
 import user from "./user";
 import get from "./game/get";
+import getAll from "./game/getAll";
 import create from "./game/create";
 
 const resolvers = {
-  Query: { user, game: get },
+  Query: { user, games: getAll, game: get },
   Mutation: { create }
 };
 

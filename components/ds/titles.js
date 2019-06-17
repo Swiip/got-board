@@ -5,6 +5,7 @@ import { fontColor } from "../../style/colors";
 export const H1 = styled.h1`
   color: ${fontColor};
   font-family: trajan-pro-3;
+  margin: 0;
 `;
 
 export const H2 = styled.h2`

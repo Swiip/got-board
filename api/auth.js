@@ -21,6 +21,11 @@ const options = {
 };
 
 export default async ({ req }) => {
+  // Debug
+  if (process.env.NODE_ENV) {
+    return { mail: "matthieu.lux@gmail.com" };
+  }
+
   const codedToken = req.headers.authorization;
   const decodedToken = await new Promise((resolve, reject) => {
     verify(codedToken, getKey, options, (err, decoded) => {

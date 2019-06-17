@@ -5,6 +5,7 @@ export const Line = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 4px;
 `;
 
 export const Label = styled.div`
