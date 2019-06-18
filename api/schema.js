@@ -9,7 +9,7 @@ export default gql`
   type Game {
     uid: String
     title: String
-    toto: String
+    turn: Int
   }
 
   type Query {

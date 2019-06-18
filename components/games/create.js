@@ -30,7 +30,7 @@ const Create = () => {
         create: { uid }
       }
     } = await createMutation();
-    Router.push(`/game/${uid}`);
+    Router.push(`/board/${uid}`);
   };
 
   return (

@@ -19,3 +19,12 @@ export const Input = styled.input`
   padding: 5px 10px;
   width: 500px;
 `;
+
+export const Input100 = styled(Input)`
+  width: 100px;
+  text-align: right;
+`;
+
+export const Input400 = styled(Input)`
+  width: 400px;
+`;

@@ -20,7 +20,8 @@ export default async (parent, { title }, { mail }) => {
   const game = {
     players: [user],
     uid,
-    title
+    title,
+    turn: 0
   };
   await gameCollection.insertOne(game);
   return game;
