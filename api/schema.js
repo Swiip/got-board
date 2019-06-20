@@ -10,6 +10,7 @@ export default gql`
     uid: String
     title: String
     turn: Int
+    players: [User]
   }
 
   type Query {
@@ -20,5 +21,6 @@ export default gql`
 
   type Mutation {
     create(title: String): Game
+    join(uid: String): Game
   }
 `;

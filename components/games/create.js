@@ -37,12 +37,7 @@ const Create = () => {
     <>
       <H2>Create a game</H2>
       <Line>
-        <Input
-          id="create-title"
-          type="text"
-          placeholder="Game title"
-          onChange={titleHander}
-        />
+        <Input type="text" placeholder="Game title" onChange={titleHander} />
         <Button type="button" onClick={createHandler}>
           Create
         </Button>

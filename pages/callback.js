@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { handleAuthentication } from "../logic/auth0/auth-service";
 
-const Callback = () => {
+import Navbar from "../components/navbar";
+import Loader from "../components/loader";
+
+const CallbackPage = () => {
   const { replace } = useRouter();
 
   useEffect(() => {
@@ -12,7 +15,12 @@ const Callback = () => {
     });
   }, []);
 
-  return "loading...";
+  return (
+    <>
+      <Navbar />
+      <Loader />
+    </>
+  );
 };
 
-export default Callback;
+export default CallbackPage;

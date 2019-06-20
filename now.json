@@ -8,7 +8,11 @@
     "MONGO_HOST": "@mongo_host",
     "MONGO_USER": "@mongo_user",
     "MONGO_PASSWORD": "@mongo_password",
-    "MONGO_DB": "@mongo_db"
+    "MONGO_DB": "@mongo_db",
+    "PUSHER_APP_ID": "@pusher_app_id",
+    "PUSHER_KEY": "@pusher_key",
+    "PUSHER_SECRET": "@pusher_secret",
+    "PUSHER_CLUSTER": "@pusher_cluster"
   },
   "builds": [
     { "src": "static", "use": "@now/static" },

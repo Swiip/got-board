@@ -9,16 +9,20 @@ import { LinkButton } from "./ds/buttons";
 import useQuery from "../logic/apollo/use-query";
 import { logout } from "../logic/auth0/auth-service";
 
+const query = gql`
+  query UserQuery {
+    user {
+      nick
+    }
+  }
+`;
+
 const UserProfile = () => {
   const {
-    user: { nick }
-  } = useQuery(gql`
-    query UserQuery {
-      user {
-        nick
-      }
+    data: {
+      user: { nick }
     }
-  `);
+  } = useQuery(query);
 
   return (
     <>

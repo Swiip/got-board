@@ -8,5 +8,5 @@ export default (query, options) => {
   if (!getIdToken()) {
     throw new Promise(() => {});
   }
-  return originalUseQuery(query, { ...options, suspend: true }).data;
+  return originalUseQuery(query, { ...options, suspend: true });
 };

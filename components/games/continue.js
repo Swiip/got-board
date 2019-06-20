@@ -1,7 +1,7 @@
 import React from "react";
 import gql from "graphql-tag";
-import Router from "next/router";
 
+import { navigateToGame } from "../../logic/game/game-logic";
 import useQuery from "../../logic/apollo/use-query";
 
 import { H2 } from "../ds/titles";
@@ -21,15 +21,11 @@ const query = gql`
 const turnLabel = turn => (turn === 0 ? "Lobby" : `Turn ${turn}`);
 
 const Continue = () => {
-  const { games } = useQuery(query);
+  const {
+    data: { games }
+  } = useQuery(query);
 
-  const goHandler = game => () => {
-    if (game.turn === 0) {
-      Router.push(`/lobby/${game.uid}`);
-    } else {
-      Router.push(`/board/${game.uid}`);
-    }
-  };
+  const goHandler = game => () => navigateToGame(game);
 
   return (
     <>

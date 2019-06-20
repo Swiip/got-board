@@ -22,8 +22,8 @@ const options = {
 
 export default async ({ req }) => {
   // Debug
-  if (process.env.NODE_ENV) {
-    return { mail: "matthieu.lux@gmail.com" };
+  if (process.env.NODE_ENV && !req.headers.authorization) {
+    return { mail: req.headers.debug_authorization };
   }
 
   const codedToken = req.headers.authorization;

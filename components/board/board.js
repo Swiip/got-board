@@ -26,7 +26,9 @@ const Board = () => {
   } = useRouter();
 
   const {
-    game: { title }
+    data: {
+      game: { title }
+    }
   } = useQuery(query, { variables: { uid: gameId } });
 
   console.log("title", title);
