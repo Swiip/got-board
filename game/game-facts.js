@@ -1,3 +1,12 @@
+export const houses = [
+  "stark",
+  "greyjoy",
+  "lannister",
+  "tyrell",
+  "baratheon",
+  "martell"
+];
+
 export const lands = {
   "castle-black": {
     features: ["crown"],
@@ -319,7 +328,7 @@ export const lands = {
     }
   },
   sunspear: {
-    features: ["castel", "martel", "crown", "barrel"],
+    features: ["castel", "martell", "crown", "barrel"],
     links: {
       seas: ["east-summer-sea", "sea-of-dorne"],
       lands: ["ybonwood", "salt-shore"]

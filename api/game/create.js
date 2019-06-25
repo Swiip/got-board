@@ -2,6 +2,8 @@ import { generate } from "shortid";
 
 import mongo from "../mongo";
 
+import { initial } from "../../game/game-model";
+
 const createId = async gameCollection => {
   const uid = generate();
   const game = await gameCollection.findOne({ uid });
@@ -18,10 +20,10 @@ export default async (parent, { title }, { mail }) => {
   const gameCollection = await db.collection("game");
   const uid = await createId(gameCollection);
   const game = {
-    players: [user],
+    ...initial,
     uid,
     title,
-    turn: 0
+    players: [user]
   };
   await gameCollection.insertOne(game);
   return game;
