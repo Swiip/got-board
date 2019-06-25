@@ -1,16 +1,14 @@
 import React from "react";
 import { useRouter } from "next/router";
 import gql from "graphql-tag";
-import styled from "@emotion/styled";
 
 import useQuery from "../../logic/apollo/use-query";
 
 import { MainBoard } from "../ds/containers";
-import Map from "./map";
-
-const Side = styled.div`
-  width: 30vw;
-`;
+import PlayerSection from "./player-section";
+import Tracks from "./tracks";
+import Map from "./map/map";
+import Metadata from "./metadata";
 
 const query = gql`
   query GameQuery($uid: String!) {
@@ -26,18 +24,18 @@ const Board = () => {
   } = useRouter();
 
   const {
-    data: {
-      game: { title }
-    }
+    data: { game }
   } = useQuery(query, { variables: { uid: gameId } });
 
-  console.log("title", title);
-
   return (
-    <MainBoard>
-      <Map />
-      <Side />
-    </MainBoard>
+    <>
+      <Metadata game={game} />
+      <MainBoard>
+        <PlayerSection />
+        <Map />
+        <Tracks />
+      </MainBoard>
+    </>
   );
 };
 
