@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 import useQuery from "../../logic/apollo/use-query";
 
 import { MainBoard } from "../ds/containers";
-import PlayerSection from "./player-section";
+import PlayerSection from "./player-section/player-section";
 import Tracks from "./tracks";
 import Map from "./map/map";
 import Metadata from "./metadata";
