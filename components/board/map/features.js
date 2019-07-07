@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useSubscription } from "../../../logic/dispatcher";
+
 const labelSize = [12, 5];
 const castleSize = 7;
 const fortSize = 4;
@@ -10,20 +12,27 @@ const knightSize = 5;
 const shipSize = 5;
 
 export const Borders = ({ ...props }) => {
-  const dragOverHandler = event => {
-    console.log("drag over", event);
+  useSubscription("DropOrderToken", payload => {
+    console.log("DropOrderToken", payload);
+  });
+
+  const mouseEnterHandler = event => {
+    console.log("mouse enter", event);
   };
-  const dropHandler = event => {
-    console.log("drop", event);
+  const mouseLeaveHandler = event => {
+    console.log("mouse leave", event);
   };
+
   return (
     <path
-      fill="none"
+      fill="transparent"
       stroke="#333333A0"
       strokeWidth="0.5"
       strokeLinejoin="round"
-      onDragOver={dragOverHandler}
-      onDrop={dropHandler}
+      // onDragOver={dragOverHandler}
+      // onDrop={dropHandler}
+      onMouseEnter={mouseEnterHandler}
+      onMouseLeave={mouseLeaveHandler}
       {...props}
     />
   );

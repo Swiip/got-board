@@ -5,26 +5,27 @@ import { H1 } from "../../ds/titles";
 import { orderTokens } from "../../../game/game-facts";
 import OrderToken from "./order-token";
 
-const OrdersContainer = styled.svg`
+const OrdersContainer = styled.div`
   width: 100%;
   height: 550px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
-const Orders = () => (
-  <>
-    <H1 as="h2" invert>
-      Orders
-    </H1>
-    <OrdersContainer>
-      {orderTokens().map((token, i) => (
-        <OrderToken
-          token={token}
-          cx={30 + 70 * (i % 2)}
-          cy={30 + 70 * Math.floor(i / 2)}
-        />
-      ))}
-    </OrdersContainer>
-  </>
-);
+const Orders = () => {
+  return (
+    <>
+      <H1 as="h2" invert>
+        Orders
+      </H1>
+      <OrdersContainer>
+        {orderTokens().map((token, i) => (
+          <OrderToken key={i} token={token} cx={30} cy={30} />
+        ))}
+      </OrdersContainer>
+    </>
+  );
+};
 
 export default Orders;

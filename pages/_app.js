@@ -6,6 +6,7 @@ import { ApolloProvider } from "react-apollo-hooks";
 import initApollo from "../logic/apollo/init-apollo";
 import { silentAuth, login } from "../logic/auth0/auth-service";
 import Global from "../style/global";
+import { DispatcherProvider } from "../logic/dispatcher";
 
 const MyApp = ({ Component, pageProps }) => {
   const apollo = useMemo(initApollo, []);
@@ -25,7 +26,9 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
       <Global />
       <ApolloProvider client={apollo}>
-        <Component {...pageProps} />
+        <DispatcherProvider>
+          <Component {...pageProps} />
+        </DispatcherProvider>
       </ApolloProvider>
     </Container>
   );
