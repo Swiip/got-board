@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 import { H1 } from "../../ds/titles";
 import { orderTokens } from "../../../game/game-facts";
+import OrderContainer from "./order-container";
 import OrderToken from "./order-token";
 
 const OrdersContainer = styled.div`
@@ -21,7 +22,9 @@ const Orders = () => {
       </H1>
       <OrdersContainer>
         {orderTokens().map((token, i) => (
-          <OrderToken key={i} token={token} cx={30} cy={30} />
+          <OrderContainer key={i} token={token}>
+            <OrderToken token={token} cx={30} cy={30} />
+          </OrderContainer>
         ))}
       </OrdersContainer>
     </>

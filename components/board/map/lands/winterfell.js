@@ -1,9 +1,10 @@
 import React from "react";
 
-import { Borders, Label, Castle, Crown, Barrel } from "../features";
+import Borders from "./borders";
+import { Label, Castle, Crown, Barrel } from "../features";
 
-const Winterfell = () => (
-  <>
+const Winterfell = props => (
+  <g {...props}>
     <Borders
       d="M 21,34
          L 35,32
@@ -20,14 +21,15 @@ const Winterfell = () => (
          L 34,48 
          L 25,47 
          L 22,45 z"
+      {...props}
     />
-    <Label x="42" y="42">
+    <Label x="42" y="42" {...props}>
       Winterfell
     </Label>
-    <Castle x="49" y="50" />
-    <Crown x="45" y="58" />
-    <Barrel x="51" y="58" />
-  </>
+    <Castle x="49" y="50" {...props} />
+    <Crown x="45" y="58" {...props} />
+    <Barrel x="51" y="58" {...props} />
+  </g>
 );
 
 export default Winterfell;

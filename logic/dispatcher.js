@@ -14,7 +14,7 @@ const createDispatcher = () => {
     subscriptions[name].push(handler);
     return () => {
       const index = subscriptions[name].indexOf(handler);
-      subscriptions.slice(index, 1);
+      subscriptions[name].splice(index, 1);
     };
   };
   return { dispatch, subscribe };
@@ -29,14 +29,12 @@ export const DispatcherProvider = ({ children }) => (
 );
 
 export const useDispatch = name => {
-  console.log("useDispatch", useContext, DispatcherContext);
   const context = useContext(DispatcherContext);
   const { dispatch } = context;
   return payload => dispatch(name, payload);
 };
 
-export const useSubscription = (name, handler) => {
-  console.log("useSubscription", useContext, DispatcherContext);
+export const useSubscription = (name, handler, deps) => {
   const { subscribe } = useContext(DispatcherContext);
-  useEffect(() => subscribe(name, handler), []);
+  useEffect(() => subscribe(name, handler), deps);
 };

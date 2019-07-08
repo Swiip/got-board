@@ -1,9 +1,10 @@
 import React from "react";
 
-import { Borders, Label, Fort } from "../features";
+import Borders from "./borders";
+import { Label, Fort } from "../features";
 
-const WhiteHarbor = () => (
-  <>
+const WhiteHarbor = props => (
+  <g {...props}>
     <Borders
       d="M 68,45
          L 79,53
@@ -16,12 +17,13 @@ const WhiteHarbor = () => (
          L 59,68
          L 53,70
          L 56,58 z"
+      {...props}
     />
-    <Label x="66" y="55">
+    <Label x="66" y="55" {...props}>
       White Harbor
     </Label>
-    <Fort x="62" y="62" />
-  </>
+    <Fort x="62" y="62" {...props} />
+  </g>
 );
 
 export default WhiteHarbor;

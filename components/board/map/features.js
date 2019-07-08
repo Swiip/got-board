@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSubscription } from "../../../logic/dispatcher";
+import Borders from "./lands/borders";
 
 const labelSize = [12, 5];
 const castleSize = 7;
@@ -10,33 +10,6 @@ const barrelSize = 4;
 const soldierSize = 4;
 const knightSize = 5;
 const shipSize = 5;
-
-export const Borders = ({ ...props }) => {
-  useSubscription("DropOrderToken", payload => {
-    console.log("DropOrderToken", payload);
-  });
-
-  const mouseEnterHandler = event => {
-    console.log("mouse enter", event);
-  };
-  const mouseLeaveHandler = event => {
-    console.log("mouse leave", event);
-  };
-
-  return (
-    <path
-      fill="transparent"
-      stroke="#333333A0"
-      strokeWidth="0.5"
-      strokeLinejoin="round"
-      // onDragOver={dragOverHandler}
-      // onDrop={dropHandler}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
-      {...props}
-    />
-  );
-};
 
 export const SeaBorders = ({ ...props }) => (
   <Borders stroke="#111133A0" {...props} />
@@ -50,6 +23,7 @@ export const Label = ({ x, y, children, ...props }) => (
       height={labelSize[1]}
       x={x - labelSize[0] / 2}
       y={y - labelSize[1] / 2}
+      {...props}
     />
     <text
       x={x}

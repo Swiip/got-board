@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 
-import CastleBlack from "./lands/castle-black";
-import Winterfell from "./lands/winterfell";
-import TheStonyShore from "./lands/the-stony-shore";
-import Karhold from "./lands/karhold";
-import WhiteHarbor from "./lands/white-harbor";
-import WidowsWatch from "./lands/widows-watch";
 import { Soldier, Knight, Ship } from "./features";
 import BayOfIce from "./seas/bay-of-ice";
 import TheShiveringSea from "./seas/the-shivering-sea";
+import Lands from "./lands/lands";
+
+import { useSubscription } from "../../../logic/dispatcher";
 
 const MapContainer = styled.svg`
   width: 70vw;
@@ -17,6 +14,16 @@ const MapContainer = styled.svg`
 `;
 
 const GameLayout = () => {
+  const [activeLocation, setActiveLocation] = useState(null);
+
+  useSubscription(
+    "DropOrderToken",
+    payload => {
+      console.log("DropOrderToken", payload, "on", activeLocation);
+    },
+    [activeLocation]
+  );
+
   return (
     <MapContainer viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
       <image
@@ -30,12 +37,7 @@ const GameLayout = () => {
       <BayOfIce />
       <TheShiveringSea />
 
-      <CastleBlack />
-      <Winterfell />
-      <TheStonyShore />
-      <Karhold />
-      <WhiteHarbor />
-      <WidowsWatch />
+      <Lands setActiveLocation={setActiveLocation} />
 
       <Soldier x={58} y={40} house="stark" />
       <Knight x={52} y={40} house="stark" />

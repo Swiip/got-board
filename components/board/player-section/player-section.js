@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import { darkGrayBg } from "../../../style/colors";
-import Orders from "./orders";
+import Orders from "../orders/orders";
 
 const Container = styled.div`
   width: 10vw;
