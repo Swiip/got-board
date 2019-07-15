@@ -13,10 +13,17 @@ export const example = {
   map: {
     id1: {
       owner: "targaryen",
-      troops: ["ship", "knight", "soldier"],
-      order: "attack"
+      troops: ["ship", "knight", "soldier"]
     }
   },
+  orders: [
+    {
+      owner: "targaryen",
+      type: "raid",
+      normal: true,
+      location: "winterfell"
+    }
+  ],
   cards: {
     targaryen: ["card1", "card2"],
     discard: ["card3", "card4"]
@@ -105,5 +112,6 @@ export const initial = {
       troops: ["soldier"]
     }
   },
+  orders: [],
   cards: {}
 };

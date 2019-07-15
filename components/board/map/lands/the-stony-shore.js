@@ -23,4 +23,6 @@ const TheStonyShore = props => (
   </g>
 );
 
+TheStonyShore.id = "the-stony-shore";
+
 export default TheStonyShore;

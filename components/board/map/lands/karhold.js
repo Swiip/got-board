@@ -13,4 +13,6 @@ const Karhold = props => (
   </g>
 );
 
+Karhold.id = "karhold";
+
 export default Karhold;

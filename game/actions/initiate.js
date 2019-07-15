@@ -1,4 +1,4 @@
-import { houses } from "../game-facts";
+import { houses } from "../houses";
 
 export default game => {
   let leftHouses = houses.map(house => house);

@@ -8,10 +8,11 @@ import get from "./game/get";
 import getAll from "./game/getAll";
 import create from "./game/create";
 import join from "./game/join";
+import dropOrder from "./game/drop-order";
 
 const resolvers = {
   Query: { user, games: getAll, game: get },
-  Mutation: { create, join }
+  Mutation: { create, join, dropOrder }
 };
 
 const server = new ApolloServer({

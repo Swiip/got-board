@@ -26,4 +26,6 @@ const WhiteHarbor = props => (
   </g>
 );
 
+WhiteHarbor.id = "white-harbor";
+
 export default WhiteHarbor;

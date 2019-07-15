@@ -32,4 +32,6 @@ const Winterfell = props => (
   </g>
 );
 
+Winterfell.id = "winterfell";
+
 export default Winterfell;

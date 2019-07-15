@@ -19,8 +19,8 @@ const lands = [
 const Lands = ({ setActiveLocation }) =>
   lands.map(Land => (
     <Land
-      key={Land.name}
-      onMouseEnter={() => setActiveLocation(Land.name)}
+      key={Land.id}
+      onMouseEnter={() => setActiveLocation(Land.id)}
       onMouseLeave={() => setActiveLocation(null)}
     />
   ));

@@ -21,4 +21,6 @@ const WidowsWatch = props => (
   </g>
 );
 
+WidowsWatch.id = "widows-watch";
+
 export default WidowsWatch;

@@ -1,12 +1,3 @@
-export const houses = [
-  "stark",
-  "greyjoy",
-  "lannister",
-  "tyrell",
-  "baratheon",
-  "martell"
-];
-
 export const lands = {
   "castle-black": {
     features: ["crown"],
@@ -464,56 +455,4 @@ export const ports = {
   oldtown: {},
   "storms-end": {},
   sunspear: {}
-};
-
-export const orders = ["raid", "march", "defense", "support", "consolidate"];
-
-export const ordersQuantity = {
-  normal: 2,
-  special: 1
-};
-
-export const orderModifyers = {
-  march: {
-    normal: 0,
-    special: 1
-  },
-  defense: {
-    normal: 1,
-    special: 2
-  },
-  support: {
-    special: 1
-  }
-};
-
-export const orderTokens = () =>
-  [
-    ...[...Array(ordersQuantity.normal)]
-      .map(() => orders.map(order => ({ type: order, normal: true })))
-      .flat(),
-    ...[...Array(ordersQuantity.special)]
-      .map(() => orders.map(order => ({ type: order, normal: false })))
-      .flat()
-  ].sort((a, b) => {
-    if (a.type === b.type) {
-      if (a.normal === b.normal) {
-        return 0;
-      }
-      if (a.normal > b.normal) {
-        return 1;
-      }
-      return -1;
-    }
-    if (a.type > b.type) {
-      return 1;
-    }
-    return -1;
-  });
-
-export const orderModifyer = order => {
-  if (orderModifyers[order.type]) {
-    return orderModifyers[order.type][order.normal ? "normal" : "special"];
-  }
-  return undefined;
 };

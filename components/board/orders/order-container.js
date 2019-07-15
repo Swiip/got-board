@@ -32,7 +32,10 @@ const OrderContainer = ({ token, children }) => {
     window.removeEventListener("mousemove", move);
     window.removeEventListener("mouseup", stop);
 
-    dispatchDrop({ token, position: [event.clientX, event.clientY] });
+    dispatchDrop({
+      token,
+      position: { x: event.clientX, y: event.clientY }
+    });
   });
 
   const start = event => {
@@ -45,7 +48,7 @@ const OrderContainer = ({ token, children }) => {
 
   return (
     <Container onMouseDown={start} dragging={dragging} position={position}>
-      <Svg>{children}</Svg>
+      <Svg viewBox="0 0 6 6">{children}</Svg>
     </Container>
   );
 };

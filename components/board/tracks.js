@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
 
+import { tracksWidth } from "../../style/sizes";
+
 const Tracks = styled.div`
-  width: 20vw;
+  width: ${tracksWidth}vw;
 `;
 
 export default Tracks;

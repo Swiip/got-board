@@ -13,4 +13,6 @@ const CastleBlack = props => (
   </g>
 );
 
+CastleBlack.id = "castle-black";
+
 export default CastleBlack;

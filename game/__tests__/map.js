@@ -1,10 +1,4 @@
-import {
-  lands,
-  seas,
-  orders,
-  ordersQuantity,
-  orderTokens
-} from "../game-facts";
+import { lands, seas } from "../map";
 
 const seaKeys = Object.keys(seas);
 const landKeys = Object.keys(lands);
@@ -39,12 +33,4 @@ test("all links from seas to lands are valid", () => {
     .flat();
   const notFound = links.filter(link => !landKeys.includes(link));
   expect(notFound).toEqual([]);
-});
-
-test("orderTokens returns the right number of tokens", () => {
-  const tokens = orderTokens();
-  const types = orders.length;
-  const quantity =
-    ordersQuantity.normal * types + ordersQuantity.special * types;
-  expect(tokens.length).toEqual(quantity);
 });
