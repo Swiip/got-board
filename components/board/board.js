@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 
 import useQuery from "../../logic/apollo/use-query";
 import GameContext from "../../logic/game/game-context";
+import usePusher from "../../logic/pusher/use-pusher";
 
 import { MainBoard } from "../ds/containers";
 import PlayerSection from "./player-section/player-section";
@@ -55,8 +56,11 @@ const Board = () => {
   } = useQuery(userQuery);
 
   const {
-    data: { game }
+    data: { game },
+    refetch
   } = useQuery(gameQuery, { variables: { uid: gameId } });
+
+  usePusher(`game-${gameId}`, refetch);
 
   const player = game.players.find(p => p.mail === mail);
 

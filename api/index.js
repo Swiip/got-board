@@ -1,3 +1,11 @@
+import "@babel/runtime-corejs2/helpers/interopRequireDefault";
+import "@babel/runtime-corejs2/regenerator";
+import "@babel/runtime-corejs2/core-js/promise";
+import "@babel/runtime-corejs2/helpers/asyncToGenerator";
+import "@babel/runtime-corejs2/helpers/taggedTemplateLiteral";
+import "@babel/runtime-corejs2/helpers/objectSpread";
+import "@babel/runtime-corejs2/helpers/toConsumableArray";
+
 import { ApolloServer } from "apollo-server-micro";
 
 import context from "./auth";

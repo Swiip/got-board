@@ -15,7 +15,7 @@
     "PUSHER_CLUSTER": "@pusher_cluster"
   },
   "builds": [
-    { "src": "static", "use": "@now/static" },
+    { "src": "static/**/*", "use": "@now/static" },
     { "src": "api/index.js", "use": "@now/node" },
     { "src": "next.config.js", "use": "@now/next" }
   ],
