@@ -20,7 +20,7 @@
     "apollo-link-error": "^1.1.10",
     "apollo-link-http": "^1.5.14",
     "apollo-server-micro": "^2.6.2",
-    "auth0-js": "^9.10.4",
+    "auth0-js": "^9.13.2",
     "emotion": "^10.0.9",
     "emotion-server": "^10.0.9",
     "fs-extra": "^8.0.1",
